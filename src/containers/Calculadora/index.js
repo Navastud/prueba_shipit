@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import SelectorComuna from './SelectorComuna';
+import Calculadora from '../../components/Calculadora';
 
-class Calculadora extends Component {
+class CalculadoraContainers extends Component {
   render() {
-    return <SelectorComuna />;
+    return <Calculadora />;
   }
 }
 
-export default Calculadora;
+export default CalculadoraContainers;
