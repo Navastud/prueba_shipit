@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Select} from 'antd';
+import {Select, Alert} from 'antd';
 
 const Option = Select.Option;
 
@@ -13,13 +13,10 @@ class SelectorComuna extends Component {
   }
 
   componentWillMount() {
-    const {comunas, selected} = this.props;
-    const children = comunas.map(({id, nombre}) => (
-      <Option key={id}>{nombre}</Option>
-    ));
-
-    let defaultValue;
+    const {selected} = this.props;
+    const children = this.getChildren();
     const comuna = this.getComuna(selected);
+    let defaultValue;
     if (comuna) {
       const {id, nombre} = comuna;
       defaultValue = {key: nombre, value: id};
@@ -28,9 +25,16 @@ class SelectorComuna extends Component {
     this.setState({children, defaultValue});
   }
 
+  getChildren = () => {
+    const {comunas} = this.props;
+    return comunas
+      ? comunas.map(({id, nombre}) => <Option key={id}>{nombre}</Option>)
+      : [];
+  };
+
   getComuna = (selected) => {
     const {comunas} = this.props;
-    return comunas.find(({id}) => id === selected);
+    return comunas ? comunas.find(({id}) => id === selected) : undefined;
   };
 
   handleChange = (value) => {
@@ -40,20 +44,22 @@ class SelectorComuna extends Component {
   render() {
     const {children, defaultValue} = this.state;
 
-    if (children.length === 0) {
-      return <div>No hay comunas cargadas</div>;
-    }
-
     return (
-      <Select
-        labelInValue
-        defaultValue={defaultValue}
-        placeholder="Seleccione comuna"
-        style={{width: '100%'}}
-        onChange={this.handleChange}
-        tokenSeparators={[',']}>
-        {children}
-      </Select>
+      <div style={{paddingBottom: '1em'}}>
+        {children.length === 0 ? (
+          <Alert message="No hay comunas cargadas" type="error" />
+        ) : (
+          <Select
+            labelInValue
+            defaultValue={defaultValue}
+            placeholder="Seleccione comuna"
+            style={{width: '100%'}}
+            onChange={this.handleChange}
+            tokenSeparators={[',']}>
+            {children}
+          </Select>
+        )}
+      </div>
     );
   }
 }
