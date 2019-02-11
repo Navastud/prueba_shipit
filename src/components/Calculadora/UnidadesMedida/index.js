@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {Row, Col} from 'antd';
 import UnidadMedida from './UnidadMedida';
+import '../styles.css';
 
 class UnidadesMedida extends Component {
   render() {
     const {ancho, alto, largo, peso} = this.props;
     return (
-      <div>
+      <div className="segmento">
         <Row type="flex">
           <Col span={6} order={1}>
             <UnidadMedida title="Ancho (cm)" value={ancho} />

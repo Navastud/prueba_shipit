@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Select, Alert} from 'antd';
+import '../styles.css';
 
 const Option = Select.Option;
 
@@ -45,7 +46,7 @@ class SelectorComuna extends Component {
     const {children, defaultValue} = this.state;
 
     return (
-      <div style={{paddingBottom: '1em'}}>
+      <div className="segmento">
         {children.length === 0 ? (
           <Alert message="No hay comunas cargadas" type="error" />
         ) : (
