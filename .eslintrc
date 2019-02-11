@@ -1,9 +1,32 @@
 {
-  "parser": "babel-eslint",
-  "plugins": [
-    "react"
-  ],
+  "extends": ["airbnb", "prettier", "prettier/react", "eslint:recommended"],
+  "plugins": ["prettier"],
   "rules": {
-    "no-undef": [ 1 ],
-  }
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [".js", ".jsx"]
+      }
+    ],
+    "no-console": "off",
+    "react/prop-types": 0,
+    "no-underscore-dangle": 0,
+    "import/imports-first": ["error", "absolute-first"],
+    "import/newline-after-import": "error",
+    "react/prefer-stateless-function": [
+      {
+        "ignorePureComponents": "ignorePureComponents"
+      }
+    ]
+  },
+  "globals": {
+    "window": true,
+    "document": true,
+    "localStorage": true,
+    "FormData": true,
+    "FileReader": true,
+    "Blob": true,
+    "navigator": true
+  },
+  "parser": "babel-eslint"
 }
