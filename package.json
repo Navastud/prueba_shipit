@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "antd": "^3.13.2",
     "axios": "^0.18.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
@@ -13,7 +14,8 @@
     "build": "react-scripts build",
     "test": "jasmine",
     "eject": "react-scripts eject",
-    "format": "prettier"
+    "format": "prettier",
+    "storybook": "start-storybook -p 9001 -c .storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -25,6 +27,18 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/register": "^7.0.0",
+    "@storybook/addon-actions": "^4.1.11",
+    "@storybook/addon-links": "^4.1.11",
+    "@storybook/addon-notes": "^4.1.11",
+    "@storybook/addons": "^4.1.11",
+    "@storybook/react": "^4.1.11",
+    "babel": "^6.23.0",
+    "babel-loader": "^8.0.5",
+    "babel-preset-react-app": "^7.0.1",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.9.1",
     "eslint": "^5.13.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^4.0.0",
@@ -34,9 +48,15 @@
     "eslint-plugin-react": "^7.12.4",
     "husky": "^1.3.1",
     "jasmine": "^3.3.1",
+    "jasmine-enzyme": "^7.0.1",
+    "jsdom": "^13.2.0",
     "lint-staged": "^8.1.3",
     "prettier": "^1.16.4",
     "pretty-quick": "^1.10.0"
   },
-  "precommit": "NODE_ENV=production lint-staged"
+  "precommit": "NODE_ENV=production lint-staged",
+  "main": "index.js",
+  "repository": "https://github.com/Navastud/prueba_shipit.git",
+  "author": "navastud <david.navastud@gmail.com>",
+  "license": "MIT"
 }
