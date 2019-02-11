@@ -1,11 +1,13 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { Button } from '@storybook/react/demo';
+import 'antd/dist/antd.css';
+import {storiesOf} from '@storybook/react';
+import SelectorComuna from '../components/Calculadora/SelectorComuna';
 
-storiesOf('Button', module)
-  .add('with text', () => (
-    <Button>Hello Button</Button>
-  ))
-  .add('with some emoji', () => (
-    <Button><span role="img" aria-label="so cool">😀 😎 👍 💯</span></Button>
+const comunas = [{id: 1, nombre: 'Maipú'}, {id: 2, nombre: 'San Bernardo'}];
+
+storiesOf('Selector Comunas', module) //
+  .add('Sin comunas cargadas', () => <SelectorComuna comunas={[]} />) //
+  .add('Con comunas cargadas', () => <SelectorComuna comunas={comunas} />) //
+  .add('Con comuna seleccionada', () => (
+    <SelectorComuna comunas={comunas} selected={1} />
   ));

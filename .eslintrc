@@ -10,12 +10,22 @@
     ],
     "no-console": "off",
     "react/prop-types": 0,
+    "react/no-unused-state": true,
     "no-underscore-dangle": 0,
+    "react/destructuring-assignment": "always",
     "import/imports-first": ["error", "absolute-first"],
     "import/newline-after-import": "error",
     "react/prefer-stateless-function": [
       {
         "ignorePureComponents": "ignorePureComponents"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false
       }
     ]
   },

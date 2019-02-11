@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
+import 'antd/dist/antd.css';
 import logo from './logo.svg';
 import './App.css';
 
@@ -15,8 +16,7 @@ class App extends Component {
             className="App-link"
             href="https://reactjs.org"
             target="_blank"
-            rel="noopener noreferrer"
-          >
+            rel="noopener noreferrer">
             Learn React
           </a>
         </header>
