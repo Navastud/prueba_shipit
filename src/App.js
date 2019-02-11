@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Calculadora from './components/Calculadora';
+import Calculadora from './containers/Calculadora';
 
 class App extends Component {
   render() {
