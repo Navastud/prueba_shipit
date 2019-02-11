@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import 'antd/dist/antd.css';
-import Calculadora from './containers/Calculadora';
+import Calculadora from './components/Calculadora';
 
 class App extends Component {
   render() {

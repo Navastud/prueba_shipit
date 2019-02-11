@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
+import SelectorComuna from './SelectorComuna';
 
 class Calculadora extends Component {
   render() {
-    return <div>Calculadora</div>;
+    return <SelectorComuna />;
   }
 }
 

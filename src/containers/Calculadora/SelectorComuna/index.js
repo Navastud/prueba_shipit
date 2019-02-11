@@ -5,6 +5,10 @@ import SelectorComuna from '../../../components/Calculadora/SelectorComuna';
 import * as acciones from '../../../actions';
 
 class SelectorComunaContainers extends Component {
+  componentWillMount() {
+    const {hanlderComunas} = this.props;
+    hanlderComunas();
+  }
   render() {
     const {loading, error, comunas} = this.props;
 

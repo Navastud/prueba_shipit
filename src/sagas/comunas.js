@@ -1,5 +1,5 @@
 import {put, takeEvery, call} from 'redux-saga/effects';
-import axios from './axios';
+import axios from 'axios';
 import * as type from '../constants/ActionsType';
 
 function* findAllComunasFetch() {
