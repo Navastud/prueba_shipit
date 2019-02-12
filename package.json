@@ -67,5 +67,6 @@
   "main": "index.js",
   "repository": "https://github.com/Navastud/prueba_shipit.git",
   "author": "navastud <david.navastud@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "proxy": "https://api.shipit.cl/v/"
 }

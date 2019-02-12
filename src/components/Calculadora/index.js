@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Form, Row, Col, Button} from 'antd';
 import Segment from '../Utils/Segment';
 import FieldNumber from '../Fields/FieldNumber';
-import LectorComunas from '../LectorComunas';
+import LectorComunasContainers from '../../containers/LectorComunasContainer';
 
 class Calculadora extends Component {
   handleSubmit = (e) => {
@@ -21,7 +21,7 @@ class Calculadora extends Component {
         <Form onSubmit={this.handleSubmit}>
           <Row type="flex" align="middle">
             <Col span={12}>
-              <LectorComunas comunas={[]} />
+              <LectorComunasContainers />
             </Col>
           </Row>
           <Row type="flex" justify="center" align="middle">

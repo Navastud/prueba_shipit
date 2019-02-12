@@ -1,14 +1,18 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://api.shipit.cl/v/',
-  timeout: 1000,
+  async: true,
+  crossDomain: true,
+  withCredentials: true,
   headers: {
-    'content-type': 'application/json',
-    'x-shipit-email': 'prueba_front@shipit.cl',
+    'cache-control': 'no-cache',
+    Accept: 'application/vnd.shipit.v2',
     'x-shipit-access-token': 'MWhEAdkHKYdscen_4cxR',
-    accept: 'application/vnd.shipit.v2',
+    'x-shipit-email': 'prueba_front@shipit.cl',
+    'content-type': 'application/json',
+    Authorization: 'AUTH_TOKEN',
   },
+  'Access-Control-Allow-Origin': '*',
 });
 
 export default instance;

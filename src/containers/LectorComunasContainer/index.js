@@ -5,7 +5,7 @@ import LectorComunas from '../../components/LectorComunas';
 import * as acciones from '../../actions';
 
 class LectorComunasContainers extends Component {
-  componentWillMount() {
+  componentDidMount() {
     const {hanlderComunas} = this.props;
     hanlderComunas();
   }
