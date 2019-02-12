@@ -1,11 +1,11 @@
 import React from 'react';
-import 'antd/dist/antd.css';
 import {Provider} from 'react-redux';
+import 'antd/dist/antd.css';
 import {storiesOf} from '@storybook/react';
 import LectorComunas from '../components/LectorComunas';
 import LectorComunasContainer from '../containers/LectorComunasContainer';
 import Calculadora from '../components/Calculadora';
-import store from '../store';
+import configuedStore from '../configuedStore';
 
 const comunas = [
   {
@@ -23,7 +23,9 @@ const comunas = [
 ];
 
 storiesOf('Lector comunas', module) //
-  .addDecorator((story) => <Provider stProviderore={store}>{story()}</Provider>)
+  .addDecorator((getStory) => (
+    <Provider store={configuedStore}>{getStory()}</Provider>
+  )) //
   .add('Lector comunas sin datos cargados', () => (
     <LectorComunas comunas={[]} />
   )) //
@@ -38,5 +40,7 @@ storiesOf('Lector comunas', module) //
   ));
 
 storiesOf('Calculadora', module) //
-  .addDecorator((story) => <Provider stProviderore={store}>{story()}</Provider>) //
+  .addDecorator((getStory) => (
+    <Provider store={configuedStore}>{getStory()}</Provider>
+  )) //
   .add('Calculadora sin datos', () => <Calculadora />);
