@@ -11,8 +11,8 @@ const instance = axios.create({
     'x-shipit-email': 'prueba_front@shipit.cl',
     'content-type': 'application/json',
     Authorization: 'AUTH_TOKEN',
+    'Access-Control-Allow-Origin': '*',
   },
-  'Access-Control-Allow-Origin': '*',
 });
 
 export default instance;
