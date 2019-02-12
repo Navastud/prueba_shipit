@@ -4,13 +4,32 @@ import {Alert} from 'antd';
 import LectorComunas from '../../components/LectorComunas';
 import * as acciones from '../../actions';
 
+let comunasDefault = [
+  {
+    id: 38,
+    region_id: 5,
+    name: 'LOS VILOS',
+    code: '04203',
+  },
+  {
+    id: 37,
+    region_id: 5,
+    name: 'CANELA',
+    code: '04202',
+  },
+];
+
 class LectorComunasContainers extends Component {
   componentDidMount() {
     const {hanlderComunas} = this.props;
     hanlderComunas();
   }
   render() {
-    const {loading, error, comunas} = this.props;
+    const {loading, error, comunas, handlerOnChange} = this.props;
+
+    if (!loading && comunas.length > 0) {
+      comunasDefault = comunas;
+    }
 
     if (loading || error) {
       return (
@@ -21,7 +40,12 @@ class LectorComunasContainers extends Component {
       );
     }
 
-    return <LectorComunas comunas={comunas} />;
+    return (
+      <LectorComunas
+        comunas={comunasDefault}
+        handlerOnChange={handlerOnChange}
+      />
+    );
   }
 }
 

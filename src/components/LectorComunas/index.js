@@ -11,11 +11,6 @@ class LectorComunas extends Component {
     };
   }
 
-  handlerOnChange = (value) => {
-    this.setState({selected: value});
-    console.log('handlerOnChange:', value);
-  };
-
   getDefaultValue = () => {
     const {comunas} = this.props;
     const {selected} = this.state;
@@ -31,7 +26,7 @@ class LectorComunas extends Component {
   };
 
   render() {
-    const {comunas} = this.props;
+    const {comunas, handlerOnChange} = this.props;
     const defaultValue = this.getDefaultValue();
 
     if (comunas.length === 0) {
@@ -41,19 +36,19 @@ class LectorComunas extends Component {
     }
 
     return (
-      <div>
-        <Select
-          size="large"
-          labelInValue
-          defaultValue={defaultValue}
-          placeholder="Seleccione una comuna"
-          style={{width: '100%'}}
-          onChange={this.handlerOnChange}>
-          {comunas.map(({id, name}) => (
-            <Option key={id}>{name}</Option>
-          ))}
-        </Select>
-      </div>
+      <Select
+        size="large"
+        labelInValue
+        defaultValue={defaultValue}
+        placeholder="Seleccione una comuna"
+        style={{width: '100%'}}
+        onChange={handlerOnChange}>
+        {comunas.map(({id, name}) => (
+          <Option key={id} value={id}>
+            {name}
+          </Option>
+        ))}
+      </Select>
     );
   }
 }

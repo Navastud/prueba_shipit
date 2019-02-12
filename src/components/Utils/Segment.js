@@ -1,7 +1,7 @@
 import React from 'react';
 import {Card, Icon} from 'antd';
 
-const Segement = ({title, icon, children}) => (
+const Segment = ({title, icon, children}) => (
   <Card
     title={
       <h4>
@@ -14,4 +14,4 @@ const Segement = ({title, icon, children}) => (
   </Card>
 );
 
-export default Segement;
+export default Segment;

@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import Calculadora from './containers/Calculadora';
+import CalculadoraContainer from './containers/CalculadoraContainer';
 
 class App extends Component {
   render() {
-    return <Calculadora />;
+    return <CalculadoraContainer />;
   }
 }
 

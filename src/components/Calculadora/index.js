@@ -1,16 +1,31 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {Form, Row, Col, Button} from 'antd';
 import Segment from '../Utils/Segment';
 import FieldNumber from '../Fields/FieldNumber';
+import FieldSelect from '../Fields/FieldSelect';
 import LectorComunasContainers from '../../containers/LectorComunasContainer';
+
+//{"package":{ "length": "10", "width": "10", "height": "10", "weight": "1", "destiny": "Domicilio", "to_commune_id": "308" }
 
 class Calculadora extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
+
+    const {handlerCotizacion} = this.props;
+    console.log('handlerCotizacion: ', handlerCotizacion);
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        console.log('Received values of form: ', values);
+        console.log('Valores del formulario: ', values);
+        handlerCotizacion({...values});
       }
+    });
+  };
+
+  handleSelectChange = ({key}) => {
+    console.log(key);
+    this.props.form.setFieldsValue({
+      to_commune_id: key,
     });
   };
 
@@ -21,14 +36,21 @@ class Calculadora extends Component {
         <Form onSubmit={this.handleSubmit}>
           <Row type="flex" align="middle">
             <Col span={12}>
-              <LectorComunasContainers />
+              <FieldSelect
+                label="Seleccione el destino"
+                name="to_commune_id"
+                getFieldDecorator={getFieldDecorator}>
+                <LectorComunasContainers
+                  handlerOnChange={this.handleSelectChange}
+                />
+              </FieldSelect>
             </Col>
           </Row>
           <Row type="flex" justify="center" align="middle">
             <Col span={6}>
               <FieldNumber
                 label="Ancho (cm)"
-                name="ancho"
+                name="width"
                 min={1}
                 getFieldDecorator={getFieldDecorator}
               />
@@ -36,7 +58,7 @@ class Calculadora extends Component {
             <Col span={6}>
               <FieldNumber
                 label="Alto (cm)"
-                name="alto"
+                name="height"
                 min={1}
                 getFieldDecorator={getFieldDecorator}
               />
@@ -44,7 +66,7 @@ class Calculadora extends Component {
             <Col span={6}>
               <FieldNumber
                 label="Largo (cm)"
-                name="largo"
+                name="length"
                 min={1}
                 getFieldDecorator={getFieldDecorator}
               />
@@ -52,7 +74,7 @@ class Calculadora extends Component {
             <Col span={6}>
               <FieldNumber
                 label="Peso (kg)"
-                name="peso"
+                name="weight"
                 min={1}
                 getFieldDecorator={getFieldDecorator}
               />
@@ -66,5 +88,9 @@ class Calculadora extends Component {
     );
   }
 }
+
+Calculadora.propTypes = {
+  handlerCotizacion: PropTypes.func.isRequired,
+};
 
 export default Form.create({name: 'calculadora'})(Calculadora);

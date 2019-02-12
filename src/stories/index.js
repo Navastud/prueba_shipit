@@ -5,6 +5,7 @@ import {storiesOf} from '@storybook/react';
 import LectorComunas from '../components/LectorComunas';
 import LectorComunasContainer from '../containers/LectorComunasContainer';
 import Calculadora from '../components/Calculadora';
+import CalculadoraContainer from '../containers/CalculadoraContainer';
 import configuedStore from '../configuedStore';
 
 const comunas = [
@@ -43,4 +44,5 @@ storiesOf('Calculadora', module) //
   .addDecorator((getStory) => (
     <Provider store={configuedStore}>{getStory()}</Provider>
   )) //
-  .add('Calculadora sin datos', () => <Calculadora />);
+  .add('Calculadora sin datos', () => <Calculadora />) //
+  .add('Calculadora procesa datos', () => <CalculadoraContainer />);
