@@ -1,17 +1,11 @@
 import React, {Component} from 'react';
-import {Card, Icon, Button, Form} from 'antd';
-import SelectorComuna from './SelectorComuna';
-import UnidadesMedida from './UnidadesMedida';
-
-function hasErrors(fieldsError) {
-  return Object.keys(fieldsError).some((field) => fieldsError[field]);
-}
+import {Form, Row, Col, Button} from 'antd';
+import Segment from '../Utils/Segment';
+import FieldNumber from '../Fields/FieldNumber';
+import LectorComunas from '../LectorComunas';
 
 class Calculadora extends Component {
-  componentDidMount() {
-    this.props.form.validateFields();
-  }
-  handleCotizar = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
@@ -21,27 +15,54 @@ class Calculadora extends Component {
   };
 
   render() {
-    const {comunas, unidades, form} = this.props;
-    const {getFieldsError} = form;
-
+    const {getFieldDecorator} = this.props.form;
     return (
-      <Form onSubmit={this.handleCotizar}>
-        <Card
-          title={
-            <h3>
-              <Icon type="search" /> Cotiza el mejor precio
-            </h3>
-          }>
-          <SelectorComuna comunas={comunas} form={form} />
-          <UnidadesMedida {...unidades} form={form} />
-          <Button
-            type="primary"
-            htmlType="submit"
-            disabled={hasErrors(getFieldsError())}>
-            Cotizar
+      <Segment title="Cotiza el mejor precio" icon="search">
+        <Form onSubmit={this.handleSubmit}>
+          <Row type="flex" align="middle">
+            <Col span={12}>
+              <LectorComunas comunas={[]} />
+            </Col>
+          </Row>
+          <Row type="flex" justify="center" align="middle">
+            <Col span={6}>
+              <FieldNumber
+                label="Ancho (cm)"
+                name="ancho"
+                min={1}
+                getFieldDecorator={getFieldDecorator}
+              />
+            </Col>
+            <Col span={6}>
+              <FieldNumber
+                label="Alto (cm)"
+                name="alto"
+                min={1}
+                getFieldDecorator={getFieldDecorator}
+              />
+            </Col>
+            <Col span={6}>
+              <FieldNumber
+                label="Largo (cm)"
+                name="largo"
+                min={1}
+                getFieldDecorator={getFieldDecorator}
+              />
+            </Col>
+            <Col span={6}>
+              <FieldNumber
+                label="Peso (kg)"
+                name="peso"
+                min={1}
+                getFieldDecorator={getFieldDecorator}
+              />
+            </Col>
+          </Row>
+          <Button type="primary" htmlType="submit">
+            Cortizar
           </Button>
-        </Card>
-      </Form>
+        </Form>
+      </Segment>
     );
   }
 }

@@ -7,3 +7,11 @@ Tecnologías a utilizar
 ● Axios
 ● CSS3
 ● HTML5
+
+Para ejecutar storybook:
+
+npm run storybook
+
+Para ejecutar la app:
+
+npm start o yarn start

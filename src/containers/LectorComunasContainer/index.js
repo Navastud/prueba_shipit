@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Alert} from 'antd';
-import SelectorComuna from '../../../components/Calculadora/SelectorComuna';
-import * as acciones from '../../../actions';
+import LectorComunas from '../../components/LectorComunas';
+import * as acciones from '../../actions';
 
-class SelectorComunaContainers extends Component {
+class LectorComunasContainers extends Component {
   componentWillMount() {
     const {hanlderComunas} = this.props;
     hanlderComunas();
@@ -21,7 +21,7 @@ class SelectorComunaContainers extends Component {
       );
     }
 
-    return <SelectorComuna comunas={comunas} />;
+    return <LectorComunas comunas={comunas} />;
   }
 }
 
@@ -37,4 +37,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(SelectorComunaContainers);
+)(LectorComunasContainers);

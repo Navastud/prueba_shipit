@@ -6,11 +6,14 @@ function* findAllComunasFetch() {
   try {
     const request = yield call(() => {
       axios.get('https://api.shipit.cl/v/communes', {
+        async: true,
+        crossDomain: true,
         headers: {
-          'Content-Type': 'application/json',
-          'X-Shipit-Email': 'prueba_front@shipit.cl',
-          'X-Shipit-Access-Token': 'MWhEAdkHKYdscen_4cxR',
+          'content-type': 'application/json',
+          'x-shipit-email': 'prueba_front@shipit.cl',
+          'x-shipit-access-token': 'MWhEAdkHKYdscen_4cxR',
           Accept: 'application/vnd.shipit.v2',
+          'cache-control': 'no-cache',
         },
       });
     });

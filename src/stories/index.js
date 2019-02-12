@@ -1,30 +1,42 @@
 import React from 'react';
 import 'antd/dist/antd.css';
+import {Provider} from 'react-redux';
 import {storiesOf} from '@storybook/react';
-import SelectorComuna from '../components/Calculadora/SelectorComuna';
-import UnidadesMedida from '../components/Calculadora/UnidadesMedida';
+import LectorComunas from '../components/LectorComunas';
+import LectorComunasContainer from '../containers/LectorComunasContainer';
 import Calculadora from '../components/Calculadora';
+import store from '../store';
 
-const comunas = [{id: 1, nombre: 'Maipú'}, {id: 2, nombre: 'San Bernardo'}];
-const unidades = {
-  ancho: 10,
-  alto: 10,
-  largo: 10,
-  peso: 1,
-};
-storiesOf('Selector Comunas', module) //
-  .add('Sin comunas cargadas', () => <SelectorComuna comunas={[]} />) //
-  .add('Con comunas cargadas', () => <SelectorComuna comunas={comunas} />) //
-  .add('Con comuna seleccionada', () => (
-    <SelectorComuna comunas={comunas} selected={1} />
+const comunas = [
+  {
+    id: 38,
+    region_id: 5,
+    name: 'LOS VILOS',
+    code: '04203',
+  },
+  {
+    id: 37,
+    region_id: 5,
+    name: 'CANELA',
+    code: '04202',
+  },
+];
+
+storiesOf('Lector comunas', module) //
+  .addDecorator((story) => <Provider stProviderore={store}>{story()}</Provider>)
+  .add('Lector comunas sin datos cargados', () => (
+    <LectorComunas comunas={[]} />
+  )) //
+  .add('Lector comunas con datos cargados', () => (
+    <LectorComunas comunas={comunas} />
+  ))
+  .add('Lector comunas con comuna seleccionada', () => (
+    <LectorComunas comunas={comunas} selected={38} />
+  ))
+  .add('Lector comunas cargadas desde servidor', () => (
+    <LectorComunasContainer comunas={comunas} selected={38} />
   ));
-
-storiesOf('Unidades de Medida', module) //
-  .add('Sin Unidades ingresadas', () => <UnidadesMedida />) //
-  .add('Con Unidades ingresadas', () => <UnidadesMedida {...unidades} />);
 
 storiesOf('Calculadora', module) //
-  .add('Calculadora sin datos', () => <Calculadora />) //
-  .add('Calculadora con  datos', () => (
-    <Calculadora {...unidades} comunas={comunas} />
-  ));
+  .addDecorator((story) => <Provider stProviderore={store}>{story()}</Provider>) //
+  .add('Calculadora sin datos', () => <Calculadora />);

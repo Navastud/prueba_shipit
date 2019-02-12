@@ -25,6 +25,10 @@
     "react/destructuring-assignment": "always",
     "import/imports-first": ["error", "absolute-first"],
     "import/newline-after-import": "error",
+    "react/no-unused-prop-types": false,
+    "import/prefer-default-export": false,
+    "react/no-access-state-in-setstate": false,
+    "react/require-default-props": false,
     "react/prefer-stateless-function": [
       {
         "ignorePureComponents": "ignorePureComponents"
