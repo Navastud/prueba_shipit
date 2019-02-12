@@ -8,17 +8,17 @@ const INITIAL_STATE = {
 
 const cotizacionState = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case type.PRICES_FETCH_REQUESTED: {
+    case type.FIND_PRICES_FETCH_REQUESTED: {
       return {...state, loading: true};
     }
-    case type.PRICES_FETCH_SUCCEEDED: {
+    case type.FIND_PRICES_FETCH_SUCCEEDED: {
       return {
         ...state,
         loading: false,
         prices: action.payload.prices,
       };
     }
-    case type.PRICES_FETCH_FAILED: {
+    case type.FIND_PRICES_FETCH_FAILED: {
       return {
         ...state,
         loading: false,

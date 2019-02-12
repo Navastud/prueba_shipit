@@ -6,7 +6,7 @@ function* findPricesFetch(action) {
   try {
     console.log('action:', action);
     const {length, width, height, weight, to_commune_id} = action.payload;
-    const data = {
+    const data = JSON.stringify({
       package: {
         length: length,
         width: width,
@@ -15,8 +15,12 @@ function* findPricesFetch(action) {
         destiny: 'Domicilio',
         to_commune_id: to_commune_id,
       },
-    };
-    const response = yield call(() => axios.post('prices', {body: data}));
+    });
+    const response = yield call(() =>
+      axios.post('prices', data, {
+        headers: {Accept: 'application/vnd.shipit.v3'},
+      }),
+    );
     console.log('response:', response);
     const prices = response.data;
     console.log('prices:', prices);
