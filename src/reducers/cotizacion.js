@@ -3,22 +3,22 @@ import * as type from '../constants/ActionsType';
 const INITIAL_STATE = {
   loading: true,
   error: '',
-  prices: [],
+  courier: [],
 };
 
 const cotizacionState = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case type.FIND_PRICES_FETCH_REQUESTED: {
+    case type.FIND_COURIERS_FETCH_REQUESTED: {
       return {...state, loading: true};
     }
-    case type.FIND_PRICES_FETCH_SUCCEEDED: {
+    case type.FIND_COURIERS_FETCH_SUCCEEDED: {
       return {
         ...state,
         loading: false,
-        prices: action.payload.prices,
+        courier: action.payload.courier,
       };
     }
-    case type.FIND_PRICES_FETCH_FAILED: {
+    case type.FIND_COURIERS_FETCH_FAILED: {
       return {
         ...state,
         loading: false,

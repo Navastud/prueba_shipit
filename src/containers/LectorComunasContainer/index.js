@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import {Alert} from 'antd';
+import {Spin} from 'antd';
 import LectorComunas from '../../components/LectorComunas';
+import ErrorMessage from '../../components/Utils/ErrorMessage';
 import * as acciones from '../../actions';
 
 let comunasDefault = [
@@ -19,7 +21,7 @@ let comunasDefault = [
   },
 ];
 
-class LectorComunasContainers extends Component {
+class LectorComunasContainer extends Component {
   componentDidMount() {
     const {hanlderComunas} = this.props;
     hanlderComunas();
@@ -31,23 +33,32 @@ class LectorComunasContainers extends Component {
       comunasDefault = comunas;
     }
 
-    if (loading || error) {
-      return (
-        <Alert
-          message="Cargando datos..."
-          type={(loading && 'info') || (error && 'error')}
-        />
-      );
+    if (error) {
+      return <ErrorMessage error={error} />;
     }
 
     return (
-      <LectorComunas
-        comunas={comunasDefault}
-        handlerOnChange={handlerOnChange}
-      />
+      <Spin tip="Cargando datos..." spinning={loading}>
+        <LectorComunas
+          comunas={comunasDefault}
+          handlerOnChange={handlerOnChange}
+        />
+      </Spin>
     );
   }
 }
+
+LectorComunasContainer.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  error: PropTypes.string,
+  comunas: PropTypes.arrayOf({
+    id: PropTypes.number.isRequired,
+    region_id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    code: PropTypes.string.isRequired,
+  }).isRequired,
+  hanlderComunas: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = (state) => {
   const {comunas, loading, error} = state.comunasState;
@@ -61,4 +72,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(LectorComunasContainers);
+)(LectorComunasContainer);

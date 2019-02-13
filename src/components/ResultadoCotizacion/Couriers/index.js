@@ -6,16 +6,14 @@ const {Column} = Table;
 
 class Couriers extends Component {
   render() {
-    const {couriers} = this.props;
+    const {couriers, handlerChangeCourier} = this.props;
     return (
       <Table
         dataSource={couriers}
-        onRow={(record, rowIndex) => {
+        onRow={(record) => {
           return {
-            onDoubleClick: (event) => {
-              console.log(event);
-              console.log('record:', record);
-              console.log('rowIndex:', rowIndex);
+            onDoubleClick: () => {
+              handlerChangeCourier({...record});
             },
           };
         }}>
@@ -42,13 +40,14 @@ class Couriers extends Component {
 }
 
 Couriers.propTypes = {
-  prices: PropTypes.arrayOf({
+  couriers: PropTypes.arrayOf({
     cost: PropTypes.number.isRequired,
     days: PropTypes.number.isRequired,
     original_courier: PropTypes.string.isRequired,
     volumetric_weight: PropTypes.number.isRequired,
     typeDelivery: PropTypes.string.isRequired,
   }).isRequired,
+  handlerChangeCourier: PropTypes.func.isRequired,
 };
 
 export default Couriers;

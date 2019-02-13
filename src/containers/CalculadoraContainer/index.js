@@ -8,7 +8,7 @@ const CalculadoraContainers = ({handlerCotizacion}) => (
 );
 
 const mapDispatchToProps = (dispatch) => ({
-  handlerCotizacion: (payload) => dispatch(acciones.findPrices(payload)),
+  handlerCotizacion: (payload) => dispatch(acciones.findCouriers(payload)),
 });
 
 export default connect(

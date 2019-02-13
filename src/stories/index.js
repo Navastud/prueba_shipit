@@ -7,6 +7,7 @@ import LectorComunasContainer from '../containers/LectorComunasContainer';
 import Calculadora from '../components/Calculadora';
 import CalculadoraContainer from '../containers/CalculadoraContainer';
 import ResultadoCotizacion from '../components/ResultadoCotizacion';
+import ResultadoCotizacionContainer from '../containers/ResultadoCotizacionContainer';
 import Courier from '../components/ResultadoCotizacion/Couriers/Courier';
 import configuedStore from '../configuedStore';
 import couriersJson from '../json/couriers.json';
@@ -42,6 +43,9 @@ storiesOf('Lector comunas', module) //
   .add('Lector comunas con comuna seleccionada', () => (
     <LectorComunas comunas={comunas} selected={38} />
   ))
+  .add('Lector comunas cargando', () => (
+    <LectorComunasContainer comunas={[]} loading />
+  )) //
   .add('Lector comunas cargadas desde servidor', () => (
     <LectorComunasContainer comunas={comunas} selected={38} />
   ));
@@ -60,4 +64,17 @@ storiesOf('Resultado Cotizacion', module) //
   .add('Resultado de cotizacion', () => (
     <ResultadoCotizacion couriers={couriers} />
   )) //
-  .add('Courier seleccionado', () => <Courier {...couriers[0]} />);
+  .add('Courier seleccionado', () => <Courier {...couriers[0]} />) //
+  .add('Courier seleccionado desde resultado', () => (
+    <ResultadoCotizacion couriers={couriers} />
+  )) //
+  .add('Cargando couriers', () => (
+    <ResultadoCotizacionContainer loading couriers={[]} />
+  )) //
+  .add('Error en couriers', () => (
+    <ResultadoCotizacionContainer
+      loading={false}
+      couriers={[]}
+      error="404 Not Found"
+    />
+  ));

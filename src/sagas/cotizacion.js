@@ -3,7 +3,7 @@ import axios from './axios';
 import * as type from '../constants/ActionsType';
 import {normalizarCouriers} from '../services/courierService';
 
-function* findPricesFetch(action) {
+function* findCouriersFetch(action) {
   try {
     const {length, width, height, weight, to_commune_id} = action.payload;
     const data = JSON.stringify({
@@ -21,22 +21,21 @@ function* findPricesFetch(action) {
         headers: {Accept: 'application/vnd.shipit.v3'},
       }),
     );
-    const prices = normalizarCouriers(response.data);
-    console.log('prices:', prices);
+    const courier = normalizarCouriers(response.data);
     yield put({
-      type: type.FIND_PRICES_FETCH_SUCCEEDED,
-      payload: {prices},
+      type: type.FIND_COURIERS_FETCH_SUCCEEDED,
+      payload: {courier},
     });
   } catch (e) {
     const error = e.message | 'Ha ocurrido un error!!';
     yield put({
-      type: type.FIND_PRICES_FETCH_FAILED,
+      type: type.FIND_COURIERS_FETCH_FAILED,
       payload: {error},
     });
   }
 }
-function* findPrices() {
-  yield takeEvery(type.FIND_PRICES_FETCH_REQUESTED, findPricesFetch);
+function* findCouriers() {
+  yield takeEvery(type.FIND_COURIERS_FETCH_REQUESTED, findCouriersFetch);
 }
 
-export default findPrices;
+export default findCouriers;
