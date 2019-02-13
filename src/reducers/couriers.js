@@ -3,10 +3,10 @@ import * as type from '../constants/ActionsType';
 const INITIAL_STATE = {
   loading: true,
   error: '',
-  courier: [],
+  couriers: [],
 };
 
-const cotizacionState = (state = INITIAL_STATE, action) => {
+const couriersState = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case type.FIND_COURIERS_FETCH_REQUESTED: {
       return {...state, loading: true};
@@ -15,7 +15,7 @@ const cotizacionState = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         loading: false,
-        courier: action.payload.courier,
+        couriers: action.payload.couriers,
       };
     }
     case type.FIND_COURIERS_FETCH_FAILED: {
@@ -30,4 +30,4 @@ const cotizacionState = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default cotizacionState;
+export default couriersState;

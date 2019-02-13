@@ -21,10 +21,10 @@ function* findCouriersFetch(action) {
         headers: {Accept: 'application/vnd.shipit.v3'},
       }),
     );
-    const courier = normalizarCouriers(response.data);
+    const couriers = normalizarCouriers(response.data);
     yield put({
       type: type.FIND_COURIERS_FETCH_SUCCEEDED,
-      payload: {courier},
+      payload: {couriers},
     });
   } catch (e) {
     const error = e.message | 'Ha ocurrido un error!!';

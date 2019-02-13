@@ -9,6 +9,7 @@ import CalculadoraContainer from '../containers/CalculadoraContainer';
 import ResultadoCotizacion from '../components/ResultadoCotizacion';
 import ResultadoCotizacionContainer from '../containers/ResultadoCotizacionContainer';
 import Courier from '../components/ResultadoCotizacion/Couriers/Courier';
+import App from '../App';
 import configuedStore from '../configuedStore';
 import couriersJson from '../json/couriers.json';
 import {normalizarCouriers} from '../services/courierService';
@@ -77,4 +78,12 @@ storiesOf('Resultado Cotizacion', module) //
       couriers={[]}
       error="404 Not Found"
     />
+  ));
+
+storiesOf('Integracion de componentes', module) //
+  .addDecorator((getStory) => (
+    <Provider store={configuedStore}>{getStory()}</Provider>
+  )) //
+  .add('Integracion de componentes Calculadora y ResultadoCotizacion', () => (
+    <App />
   ));

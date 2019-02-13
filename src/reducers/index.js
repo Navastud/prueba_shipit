@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
 import comunasState from './comunas';
-import cotizacion from './cotizacion';
+import couriersState from './couriers';
 
 const rootReducer = combineReducers({
   comunasState,
-  cotizacion,
+  couriersState,
 });
 
 export default rootReducer;

@@ -11,13 +11,12 @@ import LectorComunasContainers from '../../containers/LectorComunasContainer';
 class Calculadora extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
-
-    const {handlerCotizacion} = this.props;
-    console.log('handlerCotizacion: ', handlerCotizacion);
-    this.props.form.validateFields((err, values) => {
+    const {form, handlerChange, handlerCotizacion} = this.props;
+    form.validateFields((err, values) => {
       if (!err) {
         console.log('Valores del formulario: ', values);
         handlerCotizacion({...values});
+        handlerChange();
       }
     });
   };
@@ -91,6 +90,7 @@ class Calculadora extends Component {
 
 Calculadora.propTypes = {
   handlerCotizacion: PropTypes.func.isRequired,
+  handlerChange: PropTypes.func.isRequired,
 };
 
 export default Form.create({name: 'calculadora'})(Calculadora);

@@ -1,7 +1,7 @@
 import React from 'react';
 import {Alert} from 'antd';
 
-const ErrorMessage = (error) => (
+const ErrorMessage = ({error}) => (
   <Alert
     message="Ha ocurrido un error al procesar su solicitud"
     description={

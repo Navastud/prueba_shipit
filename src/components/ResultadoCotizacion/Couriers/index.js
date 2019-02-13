@@ -40,13 +40,15 @@ class Couriers extends Component {
 }
 
 Couriers.propTypes = {
-  couriers: PropTypes.arrayOf({
-    cost: PropTypes.number.isRequired,
-    days: PropTypes.number.isRequired,
-    original_courier: PropTypes.string.isRequired,
-    volumetric_weight: PropTypes.number.isRequired,
-    typeDelivery: PropTypes.string.isRequired,
-  }).isRequired,
+  couriers: PropTypes.arrayOf(
+    PropTypes.shape({
+      cost: PropTypes.string.isRequired,
+      days: PropTypes.number.isRequired,
+      original_courier: PropTypes.string.isRequired,
+      volumetric_weight: PropTypes.number.isRequired,
+      typeDelivery: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
   handlerChangeCourier: PropTypes.func.isRequired,
 };
 
