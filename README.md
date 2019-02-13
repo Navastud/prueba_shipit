@@ -1,17 +1,25 @@
 # Prueba Shipit
 
-Tecnologías a utilizar
-● React
-● Redux (Redux-thunk opcional)
-● Ant Design Framework
-● Axios
-● CSS3
-● HTML5
+<p>Tecnologías a utilizar:</p>
+<ul>
+  <li>React</li>
+  <li>Redux</li>
+  <li>Redux Saga</li>
+  <li>Ant Desging Framework</li>
+  <li>Storybook</li>
+  <li>Axios</li>
+  <li>HTML5</li>
+  <li>CSS3</li>
+</ul>
 
-Para ejecutar storybook:
+<p>Para ejecutar Storybook:</p>
 
-npm run storybook
+<em><strong>npm run storybook</strong></em>
 
-Para ejecutar la app:
+Queda ejecutando en la dir <strong>http://localhost:9001</strong>
 
-npm start o yarn start
+<p>Para ejecutar la app:</p>
+
+<em><strong>npm start</strong></em> o <em><strong>yarn start</strong></em>
+
+Queda ejecutando en la dir <strong>http://localhost:3000</strong>
