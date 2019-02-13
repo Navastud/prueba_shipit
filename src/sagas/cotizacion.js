@@ -1,10 +1,10 @@
 import {put, takeEvery, call} from 'redux-saga/effects';
 import axios from './axios';
 import * as type from '../constants/ActionsType';
+import {normalizarCouriers} from '../services/courierService';
 
 function* findPricesFetch(action) {
   try {
-    console.log('action:', action);
     const {length, width, height, weight, to_commune_id} = action.payload;
     const data = JSON.stringify({
       package: {
@@ -21,8 +21,7 @@ function* findPricesFetch(action) {
         headers: {Accept: 'application/vnd.shipit.v3'},
       }),
     );
-    console.log('response:', response);
-    const prices = response.data;
+    const prices = normalizarCouriers(response.data);
     console.log('prices:', prices);
     yield put({
       type: type.FIND_PRICES_FETCH_SUCCEEDED,

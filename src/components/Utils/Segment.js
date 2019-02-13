@@ -5,7 +5,7 @@ const Segment = ({title, icon, children}) => (
   <Card
     title={
       <h4>
-        <Icon type={icon} />
+        {icon && <Icon type={icon} />}
         {'  '}
         {title || 'Sin titulo'}
       </h4>

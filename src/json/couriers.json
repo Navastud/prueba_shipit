@@ -1,0 +1,105 @@
+{
+  "prices": [
+    {
+      "courier": {
+        "name": "starken",
+        "packet_from": "LAS CONDES",
+        "packet_to": "CONCEPCION"
+      },
+      "name": "DIA HABIL SIGUIENTE",
+      "price": 4476,
+      "cost": 3472,
+      "days": 1,
+      "available_to_shipping": true,
+      "original_courier": "starken",
+      "volumetric_weight": 1.0,
+      "is_payable": false,
+      "prices_spreadsheet": "starken_prices_51e91e0a8d32544172c23716baae4a4b.xlsx",
+      "costs_spreadsheet": "starken_costs_b86007527ef459e26cc7cf3db9210018.xlsx"
+    },
+    {
+      "courier": {
+        "name": "chilexpress",
+        "packet_from": "LAS CONDES",
+        "packet_to": "CONCEPCION"
+      },
+      "name": "DIA HABIL SIGUIENTE",
+      "price": 5293,
+      "cost": 3440,
+      "days": 1,
+      "available_to_shipping": true,
+      "original_courier": "chilexpress",
+      "volumetric_weight": 1.0,
+      "is_payable": false,
+      "prices_spreadsheet": "chilexpress_prices_ffd0373538b580313890c837c9ba624a.xlsx",
+      "costs_spreadsheet": "chilexpress_costs_e074081744146cefe9c9671ea62c6775.xlsx"
+    }
+  ],
+  "lower_price": {
+    "courier": {
+      "name": "chilexpress",
+      "packet_from": "LAS CONDES",
+      "packet_to": "CONCEPCION"
+    },
+    "name": "DIA HABIL SIGUIENTE",
+    "price": 4476,
+    "cost": 3440,
+    "days": 1,
+    "available_to_shipping": true,
+    "original_courier": "starken",
+    "volumetric_weight": 1.0,
+    "prices_spreadsheet": "starken_prices_51e91e0a8d32544172c23716baae4a4b.xlsx",
+    "costs_spreadsheet": "chilexpress_costs_e074081744146cefe9c9671ea62c6775.xlsx"
+  },
+  "higesth_price": {
+    "courier": {
+      "name": "chilexpress",
+      "packet_from": "LAS CONDES",
+      "packet_to": "CONCEPCION"
+    },
+    "name": "DIA HABIL SIGUIENTE",
+    "price": 5293,
+    "cost": 3440,
+    "days": 1,
+    "available_to_shipping": true,
+    "original_courier": "chilexpress",
+    "volumetric_weight": 1.0,
+    "is_payable": false,
+    "prices_spreadsheet": "chilexpress_prices_ffd0373538b580313890c837c9ba624a.xlsx",
+    "costs_spreadsheet": "chilexpress_costs_e074081744146cefe9c9671ea62c6775.xlsx"
+  },
+  "spreadsheet_versions": [
+    [
+      {
+        "volumetric": "10x10x10x1.0",
+        "volumetric_weight": 1.0,
+        "courier": "starken",
+        "price": 4476,
+        "cost": 3472,
+        "prices_spreadsheet": "starken_prices_51e91e0a8d32544172c23716baae4a4b.xlsx",
+        "costs_spreadsheet": "starken_costs_b86007527ef459e26cc7cf3db9210018.xlsx",
+        "datetime": "2019-02-13T06:16:05.866+00:00"
+      },
+      {
+        "volumetric": "10x10x10x1.0",
+        "volumetric_weight": 1.0,
+        "courier": "chilexpress",
+        "price": 5293,
+        "cost": 3440,
+        "prices_spreadsheet": "chilexpress_prices_ffd0373538b580313890c837c9ba624a.xlsx",
+        "costs_spreadsheet": "chilexpress_costs_e074081744146cefe9c9671ea62c6775.xlsx",
+        "datetime": "2019-02-13T06:16:05.866+00:00"
+      }
+    ]
+  ],
+  "spreadsheet_versions_destinations": {
+    "couriers_availables_from": {
+      "chilexpress": "LAS CONDES",
+      "starken": "LAS CONDES"
+    },
+    "couriers_availables_to": {
+      "chilexpress": "CONCEPCION",
+      "starken": "CONCEPCION"
+    }
+  }
+}

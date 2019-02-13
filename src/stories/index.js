@@ -6,7 +6,13 @@ import LectorComunas from '../components/LectorComunas';
 import LectorComunasContainer from '../containers/LectorComunasContainer';
 import Calculadora from '../components/Calculadora';
 import CalculadoraContainer from '../containers/CalculadoraContainer';
+import ResultadoCotizacion from '../components/ResultadoCotizacion';
+import Courier from '../components/ResultadoCotizacion/Couriers/Courier';
 import configuedStore from '../configuedStore';
+import couriersJson from '../json/couriers.json';
+import {normalizarCouriers} from '../services/courierService';
+
+const couriers = normalizarCouriers(couriersJson);
 
 const comunas = [
   {
@@ -46,3 +52,12 @@ storiesOf('Calculadora', module) //
   )) //
   .add('Calculadora sin datos', () => <Calculadora />) //
   .add('Calculadora procesa datos', () => <CalculadoraContainer />);
+
+storiesOf('Resultado Cotizacion', module) //
+  .addDecorator((getStory) => (
+    <Provider store={configuedStore}>{getStory()}</Provider>
+  )) //
+  .add('Resultado de cotizacion', () => (
+    <ResultadoCotizacion couriers={couriers} />
+  )) //
+  .add('Courier seleccionado', () => <Courier {...couriers[0]} />);
