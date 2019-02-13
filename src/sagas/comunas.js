@@ -4,7 +4,7 @@ import * as type from '../constants/ActionsType';
 
 function* findAllComunasFetch() {
   try {
-    const response = yield call(() => axios.get('communes'));
+    const response = yield call(() => axios.get('/communes'));
     const comunas = response.data;
     yield put({
       type: type.FIND_ALL_COMUNAS_FETCH_SUCCEEDED,
